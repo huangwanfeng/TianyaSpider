@@ -1,2 +1,2 @@
 # TianyaSpider
-Preeeeeeeesque fini.....
+Because I'm fan of Tianya BBS
