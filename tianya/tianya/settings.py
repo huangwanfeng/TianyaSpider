@@ -13,7 +13,7 @@ BOT_NAME = 'tianya'
 
 SPIDER_MODULES = ['tianya.spiders']
 NEWSPIDER_MODULE = 'tianya.spiders'
-
+ITEM_PIPELINES ={'tianya.pipelines.TianyaPipeline':300}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tianya (+http://www.yourdomain.com)'

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# import sys
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
+
 import scrapy
 from tianya.items import TianyaItem
 
@@ -19,6 +23,6 @@ class TianyaSpider(scrapy.Spider):
     def parse(self, response):
         for sel in response.xpath('//tbody/tr/td/a'):
             item = TianyaItem()
-            item['title'] = str(sel.xpath('text()').extract())
-            item['link'] = str(sel.xpath('@href').extract())
+            item['title'] = sel.xpath('text()').extract()
+            item['link'] = sel.xpath('@href').extract()
             yield item
