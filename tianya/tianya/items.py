@@ -12,3 +12,6 @@ class TianyaItem(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     desc = scrapy.Field()
+    author = scrapy.Field()
+    click = scrapy.Field()
+    reply = scrapy.Field()

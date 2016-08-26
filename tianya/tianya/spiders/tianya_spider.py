@@ -21,8 +21,11 @@ class TianyaSpider(scrapy.Spider):
     #     yield item
 
     def parse(self, response):
-        for sel in response.xpath('//tbody/tr/td[1]/a'):
+        for sel in response.xpath('//tbody/tr'):
             item = TianyaItem()
-            item['title'] = sel.xpath('normalize-space(text())').extract()
-            item['link'] = sel.xpath('@href').extract()
+            item['title'] = sel.xpath('normalize-space(td[1]/a/text())').extract()
+            item['link'] = sel.xpath('td[1]/a/@href').extract()
+            item['author'] = sel.xpath('td[2]/a/text()').extract()
+            item['click'] = sel.xpath('td[3]/text()').extract()
+            item['reply'] = sel.xpath('td[4]/text()').extract()
             yield item
