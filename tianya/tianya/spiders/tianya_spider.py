@@ -21,7 +21,7 @@ class TianyaSpider(scrapy.Spider):
     #     yield item
 
     def parse(self, response):
-        for sel in response.xpath('//tbody/tr/td/a'):
+        for sel in response.xpath('//tbody/tr/td[1]/a'):
             item = TianyaItem()
             item['title'] = sel.xpath('normalize-space(text())').extract()
             item['link'] = sel.xpath('@href').extract()
